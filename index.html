@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration form · modern & clean</title>
+  <!-- Google Font for a polished, sans-serif look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for subtle icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f0f4ff 0%, #e6edfa 100%);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .form-card {
+      background-color: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 25px 50px -12px rgba(0, 20, 60, 0.25);
+      width: 100%;
+      max-width: 720px;
+      padding: 2.5rem 2.2rem;
+      transition: all 0.2s ease;
+    }
+
+    /* header */
+    .form-header {
+      text-align: center;
+      margin-bottom: 2.2rem;
+    }
+
+    .form-header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b1e3c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .form-header h1 i {
+      color: #2d5bff;
+      font-size: 2rem;
+    }
+
+    .form-header p {
+      color: #5f6c86;
+      font-weight: 400;
+      margin-top: 6px;
+      font-size: 0.95rem;
+    }
+
+    /* two‑column layout for better density */
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .form-group {
+      flex: 1 1 calc(50% - 0.6rem);
+      min-width: 210px;
+      margin-bottom: 0.75rem;
+    }
+
+    .form-group.full-width {
+      flex: 1 1 100%;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1f2b48;
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    label i {
+      color: #2d5bff;
+      font-size: 0.9rem;
+      width: 1.2rem;
+    }
+
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      background: #f8fafd;
+      border: 1.5px solid #e1e8f0;
+      border-radius: 20px;
+      padding: 0.1rem 1rem 0.1rem 0.8rem;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    .input-wrapper i {
+      color: #6f7d9c;
+      font-size: 1rem;
+      width: 1.8rem;
+      transition: color 0.15s;
+    }
+
+    .input-wrapper input,
+    .input-wrapper select {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 0.8rem 0 0.8rem 0.2rem;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      color: #121f3f;
+      outline: none;
+    }
+
+    .input-wrapper select {
+      cursor: pointer;
+    }
+
+    .input-wrapper:focus-within {
+      border-color: #2d5bff;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(45, 91, 255, 0.15);
+    }
+
+    .input-wrapper:focus-within i {
+      color: #2d5bff;
+    }
+
+    /* terms & gender specific */
+    .gender-group, .terms-group {
+      background: #f8fafd;
+      border-radius: 20px;
+      padding: 0.6rem 1.2rem;
+      border: 1.5px solid #e1e8f0;
+      margin-top: 0.4rem;
+    }
+
+    .gender-options {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .gender-options label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 400;
+      color: #2a3650;
+      font-size: 0.95rem;
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+
+    .gender-options input[type="radio"] {
+      accent-color: #2d5bff;
+      width: 1rem;
+      height: 1rem;
+      cursor: pointer;
+    }
+
+    .terms-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .terms-wrapper input[type="checkbox"] {
+      width: 1.2rem;
+      height: 1.2rem;
+      accent-color: #2d5bff;
+      cursor: pointer;
+    }
+
+    .terms-wrapper label {
+      margin-bottom: 0;
+      font-weight: 400;
+      color: #2e3b5b;
+    }
+
+    .terms-wrapper a {
+      color: #2d5bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .terms-wrapper a:hover {
+      text-decoration: underline;
+    }
+
+    /* password hint small */
+    .hint {
+      font-size: 0.75rem;
+      color: #6f7d9c;
+      margin-top: 6px;
+      margin-left: 10px;
+    }
+
+    .hint i {
+      color: #2d5bff;
+    }
+
+    /* register button */
+    .btn-register {
+      background: #0b1e3c;
+      border: none;
+      border-radius: 40px;
+      padding: 1rem 1.8rem;
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      margin: 2rem 0 1.2rem 0;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 12px 28px -8px rgba(11, 30, 60, 0.3);
+    }
+
+    .btn-register i {
+      font-size: 1.3rem;
+      transition: transform 0.2s;
+    }
+
+    .btn-register:hover {
+      background: #1b2d55;
+      box-shadow: 0 16px 32px -8px #0b1e3c;
+    }
+
+    .btn-register:active {
+      transform: scale(0.98);
+    }
+
+    /* login link */
+    .footer-links {
+      text-align: center;
+      color: #5f6c86;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a {
+      color: #0b1e3c;
+      font-weight: 600;
+      text-decoration: none;
+      margin-left: 6px;
+      border-bottom: 1px dashed #b7c2da;
+    }
+
+    .footer-links a:hover {
+      color: #2d5bff;
+      border-bottom: 1px solid #2d5bff;
+    }
+
+    /* very small screen adj */
+    @media (max-width: 500px) {
+      .form-card {
+        padding: 1.8rem 1.2rem;
+      }
+      .form-row {
+        gap: 0.6rem;
+      }
+      .gender-options {
+        gap: 1.2rem;
+      }
+    }
+
+    /* disable number spinners (optional, looks cleaner) */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-card">
+    <div class="form-header">
+      <h1>
+        <i class="fas fa-pen-to-square"></i> 
+        registration
+      </h1>
+      <p>join our community — fill in your details below</p>
+    </div>
+
+    <form onsubmit="event.preventDefault(); alert('✨ Registration demo — form submitted (no actual POST)');">
+      <!-- first & last name -->
+      <div class="form-row">
+        <div class="form-group">
+          <label><i class="far fa-user"></i> first name</label>
+          <div class="input-wrapper">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Alex" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="far fa-user"></i> last name</label>
+          <div class="input-wrapper">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Johnson" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- email & phone -->
+      <div class="form-row">
+        <div class="form-group">
+          <label><i class="far fa-envelope"></i> email</label>
+          <div class="input-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="alex@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-phone-alt"></i> phone</label>
+          <div class="input-wrapper">
+            <i class="fas fa-phone"></i>
+            <input type="tel" placeholder="+1 234 567 890" pattern="[0-9+\-\s]+" title="numbers, spaces, plus, hyphen">
+          </div>
+        </div>
+      </div>
+
+      <!-- password & confirm (two columns) -->
+      <div class="form-row">
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> password</label>
+          <div class="input-wrapper">
+            <i class="fas fa-key"></i>
+            <input type="password" placeholder="··········" required minlength="8">
+          </div>
+          <div class="hint"><i class="fas fa-circle-info"></i> min 8 characters</div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> confirm password</label>
+          <div class="input-wrapper">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="··········" required minlength="8">
+          </div>
+        </div>
+      </div>
+
+      <!-- birth & country (two columns) -->
+      <div class="form-row">
+        <div class="form-group">
+          <label><i class="fas fa-cake-candles"></i> birth date</label>
+          <div class="input-wrapper">
+            <i class="fas fa-calendar-alt"></i>
+            <input type="date" required value="2000-01-01">
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-globe"></i> country</label>
+          <div class="input-wrapper">
+            <i class="fas fa-map-pin"></i>
+            <select required>
+              <option value="" disabled selected>– select –</option>
+              <option>United States</option>
+              <option>Canada</option>
+              <option>United Kingdom</option>
+              <option>Australia</option>
+              <option>Germany</option>
+              <option>France</option>
+              <option>India</option>
+              <option>Brazil</option>
+              <option>Japan</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- gender (custom styled group) + full width optional note -->
+      <div class="form-group full-width">
+        <label><i class="fas fa-venus-mars"></i> gender</label>
+        <div class="gender-group">
+          <div class="gender-options">
+            <label><input type="radio" name="gender" value="female"> <i class="fas fa-venus"></i> Female</label>
+            <label><input type="radio" name="gender" value="male"> <i class="fas fa-mars"></i> Male</label>
+            <label><input type="radio" name="gender" value="other"> <i class="fas fa-genderless"></i> Other</label>
+            <label><input type="radio" name="gender" value="prefer-not" checked> Prefer not</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- terms and conditions (full width) -->
+      <div class="form-group full-width">
+        <div class="terms-group">
+          <div class="terms-wrapper">
+            <input type="checkbox" id="termsCheckbox" required>
+            <label for="termsCheckbox">I agree to the <a href="#" aria-label="terms of service (demo)">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- register button -->
+      <button type="submit" class="btn-register">
+        <i class="fas fa-arrow-right-to-bracket"></i> register now
+      </button>
+
+      <div class="footer-links">
+        already have an account? <a href="#">sign in</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- tiny extra demo effect: realtime password match hint (optional, no js needed but adds a bit of style if user starts typing) – purely visual enhancement via simple js? better keep minimal, but we can do a tiny inline notifier for better UX without overcomplicating: just an oninput check. I'll add a very lightweight check (no external libs) to highlight mismatch – keeps it functional -->
+  <script>
+    (function() {
+      // Optional: simple inline validation hint for password match (non‑blocking, just visual)
+      const pwd = document.querySelector('input[type="password"]');
+      const confirmPwd = document.querySelectorAll('input[type="password"]')[1];
+      if (pwd && confirmPwd) {
+        function checkMatch() {
+          if (confirmPwd.value.length > 0) {
+            if (pwd.value !== confirmPwd.value) {
+              confirmPwd.style.borderColor = '#ff4d4d';   // red outline only on the inner input? we style the wrapper instead? better use parent wrapper.
+              const wrapper = confirmPwd.closest('.input-wrapper');
+              if (wrapper) {
+                wrapper.style.borderColor = '#f86b6b';
+                wrapper.style.boxShadow = '0 2px 8px rgba(255, 70, 70, 0.2)';
+              }
+            } else {
+              const wrapper = confirmPwd.closest('.input-wrapper');
+              if (wrapper) {
+                wrapper.style.borderColor = '#2d5bff';    // back to normal blue when matching
+                wrapper.style.boxShadow = 'none';
+              }
+            }
+          } else {
+            const wrapper = confirmPwd.closest('.input-wrapper');
+            if (wrapper) {
+              wrapper.style.borderColor = '#e1e8f0';
+              wrapper.style.boxShadow = 'none';
+            }
+          }
+        }
+        pwd.addEventListener('input', checkMatch);
+        confirmPwd.addEventListener('input', checkMatch);
+      }
+    })();
+  </script>
+  <!-- note: the border of confirm password will subtly indicate mismatch – pure UX touch -->
+</body>
+</html>
